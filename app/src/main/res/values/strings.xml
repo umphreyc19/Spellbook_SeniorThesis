@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Spellbook</string>
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
+    <string name="num6">6</string>
+    <string name="num7">7</string>
+    <string name="num8">8</string>
+    <string name="num9">9</string>
+    <string name="num0">0</string>
+    <string name="num00">00</string>
+    <string name="p1add">+</string>
+    <string name="p1sub">-</string>
+    <string name="p2add">+</string>
+    <string name="p2sub">-</string>
+    <string name="p1div">/</string>
+    <string name="p2div">/</string>
+    <string name="p1LPinit">8000</string>
+    <string name="p2LPinit">8000</string>
+    <string name="numC">C</string>
+
 </resources>
