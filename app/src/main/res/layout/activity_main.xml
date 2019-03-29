@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/P1add"
+        android:id="@+id/p1add"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
         android:layout_marginStart="81dp"
         android:text="@string/p1sub"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/P1add" />
+        app:layout_constraintTop_toTopOf="@+id/p1add" />
 
     <Button
         android:id="@+id/P1div"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/p1div"
         app:layout_constraintStart_toEndOf="@+id/p1sub"
-        app:layout_constraintTop_toTopOf="@+id/P1add" />
+        app:layout_constraintTop_toTopOf="@+id/p1add" />
 
     <Button
         android:id="@+id/P2add"
@@ -40,7 +40,7 @@
         android:layout_marginEnd="128dp"
         android:text="@string/p2add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/P1add" />
+        app:layout_constraintTop_toTopOf="@+id/p1add" />
 
     <Button
         android:id="@+id/p2sub"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="@string/p2sub"
         app:layout_constraintStart_toEndOf="@+id/P2add"
-        app:layout_constraintTop_toTopOf="@+id/P1add" />
+        app:layout_constraintTop_toTopOf="@+id/p1add" />
 
     <Button
         android:id="@+id/p2div"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="@string/p2div"
         app:layout_constraintStart_toEndOf="@+id/p2sub"
-        app:layout_constraintTop_toTopOf="@+id/P1add" />
+        app:layout_constraintTop_toTopOf="@+id/p1add" />
 
 
     <Button
@@ -192,6 +192,15 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/p1LP" />
+
+    <EditText
+        android:id="@+id/lpEdit"
+        android:inputType="number"
+        android:layout_width="411dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="236dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
