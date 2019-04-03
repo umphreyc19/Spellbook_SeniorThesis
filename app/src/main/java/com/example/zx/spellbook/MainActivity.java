@@ -1,5 +1,6 @@
 package com.example.zx.spellbook;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
             buttonHalveP1, buttonHalveP2, buttonC;
     TextView player1LP, player2LP;
     EditText lpEdit;
+
+    int p1addval, p2addval, p1subval, p2subval;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +135,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 lpEdit.setText("");
+            }
+        });
+
+        buttonAddP1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (String.valueOf(lpEdit.getText()).equals("")){
+                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + 0));
+                } else {
+                    p1addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + p1addval));
+                    lpEdit.setText("");
+                }
             }
         });
 
