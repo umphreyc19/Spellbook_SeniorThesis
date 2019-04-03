@@ -158,8 +158,13 @@ public class MainActivity extends AppCompatActivity {
                     player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - 0));
                 } else {
                     p1subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+                    if (Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval < 0) {
+                        player1LP.setText("0");
+                        lpEdit.setText("");
+                    } else {
                     player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval));
                     lpEdit.setText("");
+                    }
                 }
             }
         });
@@ -171,6 +176,50 @@ public class MainActivity extends AppCompatActivity {
                     player1LP.setText("1");
                 } else {
                     player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) / 2));
+                }
+
+            }
+        });
+
+
+        buttonAddP2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (String.valueOf(lpEdit.getText()).equals("")){
+                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + 0));
+                } else {
+                    p2addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + p2addval));
+                    lpEdit.setText("");
+                }
+            }
+        });
+
+        buttonSubP2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (String.valueOf(lpEdit.getText()).equals("")){
+                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - 0));
+                } else {
+                    p2subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+                    if (Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval < 0) {
+                        player2LP.setText("0");
+                        lpEdit.setText("");
+                    } else {
+                        player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval));
+                        lpEdit.setText("");
+                    }
+                }
+            }
+        });
+
+        buttonHalveP2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (player2LP.getText().equals("1")) {
+                    player2LP.setText("1");
+                } else {
+                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) / 2));
                 }
 
             }
