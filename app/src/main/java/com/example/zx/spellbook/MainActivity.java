@@ -151,7 +151,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonSubP1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (String.valueOf(lpEdit.getText()).equals("")){
+                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - 0));
+                } else {
+                    p1subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval));
+                    lpEdit.setText("");
+                }
+            }
+        });
 
+        buttonHalveP1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (player1LP.getText().equals("1")) {
+                    player1LP.setText("1");
+                } else {
+                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) / 2));
+                }
+
+            }
+        });
 
 
     }
