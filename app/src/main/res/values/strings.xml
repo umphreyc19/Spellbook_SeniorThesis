@@ -20,6 +20,7 @@
     <string name="p1LPinit">8000</string>
     <string name="p2LPinit">8000</string>
     <string name="numC">C</string>
+    <string name="timer">40:00</string>
 
 
 </resources>

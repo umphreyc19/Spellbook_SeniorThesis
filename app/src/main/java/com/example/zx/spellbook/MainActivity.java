@@ -11,13 +11,18 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    CountDownTimer countDownTimer;
+    long timeLeftInMilliseconds = 2400000; //40 minutes
+
     Button button0, button1, button2, button3, button4, button5, button6, button7,
             button8, button9, button00, buttonAddP1, buttonAddP2, buttonSubP1, buttonSubP2,
-            buttonHalveP1, buttonHalveP2, buttonC;
+            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer;
     TextView player1LP, player2LP;
     EditText lpEdit;
 
     int p1addval, p2addval, p1subval, p2subval;
+
+    boolean isTimerOn;
 
 
     @Override
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAddP2 = (Button) findViewById(R.id.P2add);
         buttonSubP2 = (Button) findViewById(R.id.p2sub);
         buttonHalveP2 = (Button) findViewById(R.id.p2div);
+        buttonTimer = (Button) findViewById(R.id.timer);
 
         lpEdit = (EditText) findViewById(R.id.lpEdit);
 
@@ -225,6 +231,63 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startStop();
+            }
+        });
+
+
+
+
 
     }
+
+
+    public void startStop() {
+        if (isTimerOn) {
+            stopTimer();
+        } else {
+            startTimer();
+        }
+    }
+
+    public void startTimer(){
+        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMilliseconds = l;
+                updateTimer();
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
+        isTimerOn = true;
+    }
+
+    public void stopTimer(){
+        countDownTimer.cancel();
+        isTimerOn = false;
+    }
+
+    public void updateTimer(){
+        int minutes = (int) timeLeftInMilliseconds / 60000;
+        int seconds = (int) timeLeftInMilliseconds % 60000 / 1000;
+
+        String timeLeftText;
+
+        timeLeftText = "" + minutes;
+        timeLeftText += ":";
+        if (seconds < 10) timeLeftText += 0;
+        timeLeftText += seconds;
+
+        buttonTimer.setText(timeLeftText);
+    }
+
 }
