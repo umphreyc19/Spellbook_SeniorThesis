@@ -1,6 +1,8 @@
 package com.example.zx.spellbook;
 
+import android.content.DialogInterface;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button0, button1, button2, button3, button4, button5, button6, button7,
             button8, button9, button00, buttonAddP1, buttonAddP2, buttonSubP1, buttonSubP2,
-            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer;
+            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset;
     TextView player1LP, player2LP;
     EditText lpEdit;
 
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSubP2 = (Button) findViewById(R.id.p2sub);
         buttonHalveP2 = (Button) findViewById(R.id.p2div);
         buttonTimer = (Button) findViewById(R.id.timer);
+        reset = (Button) findViewById(R.id.reset);
 
         lpEdit = (EditText) findViewById(R.id.lpEdit);
 
@@ -238,6 +241,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset();
+            }
+        });
+
 
 
 
@@ -288,6 +298,34 @@ public class MainActivity extends AppCompatActivity {
         timeLeftText += seconds;
 
         buttonTimer.setText(timeLeftText);
+    }
+
+    private void reset(){
+        AlertDialog.Builder resetAlert = new AlertDialog.Builder(this);
+        resetAlert.setMessage("Are you sure you would like to reset?");
+        resetAlert.setCancelable(false);
+
+        resetAlert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Resets the game
+                player1LP.setText("8000");
+                player2LP.setText("8000");
+                stopTimer();
+                timeLeftInMilliseconds = 2400000;
+                buttonTimer.setText("40:00");
+            }
+        });
+
+        resetAlert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Do nothing
+            }
+        });
+
+        resetAlert.create().show();
+
     }
 
 }
