@@ -147,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        /*Allows the user to add to the current player 1 value*/
         buttonAddP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -160,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*Allows the user to subtract from the current player 1 value*/
         buttonSubP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -178,6 +181,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        /*Allows the user to halve the current player 1 value*/
         buttonHalveP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -190,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        /*Allows the user to add to the current player 2 value*/
         buttonAddP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -204,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*Allows the user to subtract from the current player 2 value*/
         buttonSubP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -222,6 +228,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        /*Allows the user to halve the current player 2 value*/
         buttonHalveP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
