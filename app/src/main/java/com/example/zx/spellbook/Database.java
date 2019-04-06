@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
+import com.example.zx.spellbook.Card;
 import java.net.URL;
 
 public class Database extends AppCompatActivity{
