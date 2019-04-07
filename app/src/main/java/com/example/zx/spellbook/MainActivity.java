@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button0, button1, button2, button3, button4, button5, button6, button7,
             button8, button9, button00, buttonAddP1, buttonAddP2, buttonSubP1, buttonSubP2,
-            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset;
+            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset, testdb;
     TextView player1LP, player2LP;
     EditText lpEdit;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*Assigned buttons to IDs*/
 
+        testdb = (Button) findViewById(R.id.testdb);
         button0 = (Button) findViewById(R.id.button0);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -152,13 +153,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAddP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (String.valueOf(lpEdit.getText()).equals("")){
-                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + 0));
-                } else {
-                    p1addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
-                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + p1addval));
-                    lpEdit.setText("");
-                }
+                addP1();
             }
         });
 
@@ -166,18 +161,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSubP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (String.valueOf(lpEdit.getText()).equals("")){
-                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - 0));
-                } else {
-                    p1subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
-                    if (Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval < 0) {
-                        player1LP.setText("0");
-                        lpEdit.setText("");
-                    } else {
-                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval));
-                    lpEdit.setText("");
-                    }
-                }
+                subP1();
             }
         });
 
@@ -260,6 +244,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+    }
+
+    public void addP1() {
+        if (String.valueOf(lpEdit.getText()).equals("")){
+            player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + 0));
+        } else {
+            p1addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+            player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + p1addval));
+            lpEdit.setText("");
+        }
+    }
+
+    public void subP1(){
+        if (String.valueOf(lpEdit.getText()).equals("")){
+            player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - 0));
+        } else {
+            p1subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+            if (Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval < 0) {
+                player1LP.setText("0");
+                lpEdit.setText("");
+            } else {
+                player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval));
+                lpEdit.setText("");
+            }
+        }
     }
 
 

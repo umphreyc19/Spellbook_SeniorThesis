@@ -2,6 +2,11 @@ package com.example.zx.spellbook;
 
 import com.squareup.moshi.Json;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class Card {
 
     @Json(name = "id")
