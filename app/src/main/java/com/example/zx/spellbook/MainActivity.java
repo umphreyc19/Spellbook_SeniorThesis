@@ -152,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         //Allows the user to add to the current player 1 value
         buttonAddP1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -236,11 +238,9 @@ public class MainActivity extends AppCompatActivity {
                 flipCoin();
             }
         });
-
-
-
-
     }
+
+
 
     //Opens the Die Roll Activity
     public void dieRoll(){
