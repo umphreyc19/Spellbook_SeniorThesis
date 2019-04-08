@@ -201,7 +201,7 @@
 
     <TextView
         android:id="@+id/p1LP"
-        android:layout_width="201dp"
+        android:layout_width="205dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:background="#f23e1a"
@@ -213,8 +213,8 @@
 
     <TextView
         android:id="@+id/p2LP"
-        android:layout_width="210dp"
-        android:layout_height="49dp"
+        android:layout_width="205dp"
+        android:layout_height="48dp"
         android:background="#1941f1"
         android:text="@string/p2LPinit"
         android:textAlignment="center"

@@ -85,8 +85,8 @@ public class Database extends Activity{
 
                 //Add your values in your `ArrayList` as below:
                 m_li = new HashMap<String, String>();
-                m_li.put("name", id_value);
-                m_li.put("url", name_value);
+                m_li.put("id", id_value);
+                m_li.put("name", name_value);
                 m_li.put("type", type_value);
                 m_li.put("desc", desc_value);
                 m_li.put("race", race_value);
@@ -96,11 +96,16 @@ public class Database extends Activity{
 
                 formList.add(m_li);
             }
-            
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+
+
     }
 
 
