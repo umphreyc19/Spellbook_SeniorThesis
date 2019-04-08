@@ -22,6 +22,7 @@ public class CoinFlip extends Activity {
         });
     }
 
+    //Determines which side of the coin to be on (flips the coin)
     private void flipCoin(){
         coin.setImageResource(rand.nextFloat() > 0.5f ? R.drawable.tails : R.drawable.heads);
     }

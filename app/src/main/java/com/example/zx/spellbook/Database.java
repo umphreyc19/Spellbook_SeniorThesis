@@ -25,6 +25,7 @@ import com.squareup.moshi.Json;
 
 public class Database extends Activity{
 
+    //Asserts that the file being called is actually a JSON file
     public static String AssetJSONFile (String filename, Context context) throws IOException {
         AssetManager manager = context.getAssets();
         InputStream file = manager.open(filename);
@@ -38,7 +39,7 @@ public class Database extends Activity{
 
 
 
-
+    //Stores the JSON information into a string
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -72,6 +73,7 @@ public class Database extends Activity{
             ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
             HashMap<String, String> m_li;
 
+            //Assigning values to strings
             for (int i = 0; i < obj.length(); i++) {
                 JSONObject jo_inside = obj.getJSONObject(i);
                 String id_value = jo_inside.getString("id");
@@ -83,7 +85,7 @@ public class Database extends Activity{
                 String image_url_small = jo_inside.getString("image_url_small");
                 String setcode_value = jo_inside.getString("setcode");
 
-                //Add your values in your `ArrayList` as below:
+                //Assigning values above to keys
                 m_li = new HashMap<String, String>();
                 m_li.put("id", id_value);
                 m_li.put("name", name_value);
@@ -152,137 +154,70 @@ public class Database extends Activity{
             return id;
         }
 
-        public void setId(String id) {
-            this.id = id;
-        }
-
         public String getName() {
             return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
         }
 
         public String getType() {
             return type;
         }
 
-        public void setType(String type) {
-            this.type = type;
-        }
-
         public String getDesc() {
             return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
         }
 
         public String getRace() {
             return race;
         }
 
-        public void setRace(String race) {
-            this.race = race;
-        }
-
         public String getSetTag() {
             return setTag;
-        }
-
-        public void setSetTag(String setTag) {
-            this.setTag = setTag;
         }
 
         public String getSetcode() {
             return setcode;
         }
 
-        public void setSetcode(String setcode) {
-            this.setcode = setcode;
-        }
-
         public String getImageUrl() {
             return imageUrl;
-        }
-
-        public void setImageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
         }
 
         public String getImageUrlSmall() {
             return imageUrlSmall;
         }
 
-        public void setImageUrlSmall(String imageUrlSmall) {
-            this.imageUrlSmall = imageUrlSmall;
-        }
-
         public String getAtk() {
             return atk;
-        }
-
-        public void setAtk(String atk) {
-            this.atk = atk;
         }
 
         public String getDef() {
             return def;
         }
 
-        public void setDef(String def) {
-            this.def = def;
-        }
-
         public String getLevel() {
             return level;
-        }
-
-        public void setLevel(String level) {
-            this.level = level;
         }
 
         public String getAttribute() {
             return attribute;
         }
 
-        public void setAttribute(String attribute) {
-            this.attribute = attribute;
-        }
-
         public String getScale() {
             return scale;
-        }
-
-        public void setScale(String scale) {
-            this.scale = scale;
         }
 
         public String getArchetype() {
             return archetype;
         }
 
-        public void setArchetype(String archetype) {
-            this.archetype = archetype;
-        }
-
         public String getLinkval() {
             return linkval;
-        }
-
-        public void setLinkval(String linkval) {
-            this.linkval = linkval;
         }
 
         public String getLinkmarkers() {
             return linkmarkers;
         }
 
-        public void setLinkmarkers(String linkmarkers) {
-            this.linkmarkers = linkmarkers;
-        }
 
     }
 
