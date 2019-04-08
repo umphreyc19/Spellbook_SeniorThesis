@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button0, button1, button2, button3, button4, button5, button6, button7,
             button8, button9, button00, buttonAddP1, buttonAddP2, buttonSubP1, buttonSubP2,
-            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset, testdb, diceroll;
+            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset, testdb, diceroll, coinflip;
     TextView player1LP, player2LP;
     EditText lpEdit;
 
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         buttonTimer = (Button) findViewById(R.id.timer);
         reset = (Button) findViewById(R.id.reset);
         diceroll = (Button) findViewById(R.id.die_roll);
+        coinflip = findViewById(R.id.coin_flip);
 
         lpEdit = (EditText) findViewById(R.id.lpEdit);
 
@@ -257,6 +258,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        coinflip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flipCoin();
+            }
+        });
+
 
 
 
@@ -268,6 +276,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void flipCoin(){
+        Intent intent = new Intent(this, CoinFlip.class);
+        startActivity(intent);
+    }
 
     public void openDB(){
         Intent intent = new Intent(this, Database.class);

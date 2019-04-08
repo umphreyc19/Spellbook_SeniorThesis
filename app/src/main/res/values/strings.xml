@@ -18,6 +18,7 @@
     <string name="p1div">/</string>
     <string name="p2div">/</string>
     <string name="Dice">Dice</string>
+    <string name="Coin">Coin</string>
     <string name="db">Database</string>
     <string name="p1LPinit">8000</string>
     <string name="p2LPinit">8000</string>
