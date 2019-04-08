@@ -1,6 +1,7 @@
 package com.example.zx.spellbook;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -241,11 +242,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        testdb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDB();
+            }
+        });
 
 
 
 
+    }
 
+    public void openDB(){
+        Intent intent = new Intent(this, Database.class);
+        startActivity(intent);
     }
 
     public void addP1() {

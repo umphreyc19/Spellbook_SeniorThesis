@@ -1,9 +1,10 @@
 package com.example.zx.spellbook;
 
 import android.app.Activity;
-import android.app.Fragment;
+
+import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,18 +13,31 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.ListView;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import java.io.InputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.example.zx.spellbook.Card;
 
 
-public class Database extends Activity {
+public class Database extends Activity{
+
+    public static String AssetJSONFile (String filename, Context context) throws IOException {
+        AssetManager manager = context.getAssets();
+        InputStream file = manager.open(filename);
+        byte[] formArray = new byte[file.available()];
+        file.read(formArray);
+        file.close();
+
+        return new String(formArray);
+    }
+
+
+
+
 
     public String loadJSONFromAsset() {
         String json = null;
@@ -33,27 +47,35 @@ public class Database extends Activity {
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
         }
+
         return json;
     }
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
+        ListView databaseView = findViewById(R.id.listDatabase);
+
+
+
+
+
+
+
 
         try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray m_jArry = obj.getJSONArray("response");
+            JSONArray obj = new JSONArray(loadJSONFromAsset());
+            Log.d("Length", Integer.toString(obj.length()));
             ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
             HashMap<String, String> m_li;
 
-            for (int i = 0; i < m_jArry.length(); i++) {
-                JSONObject jo_inside = m_jArry.getJSONObject(i);
-                Log.d("Details-->", jo_inside.getString("response"));
+            for (int i = 0; i < obj.length(); i++) {
+                JSONObject jo_inside = obj.getJSONObject(i);
                 String id_value = jo_inside.getString("id");
                 String name_value = jo_inside.getString("name");
                 String type_value = jo_inside.getString("type");
@@ -61,10 +83,6 @@ public class Database extends Activity {
                 String race_value = jo_inside.getString("race");
                 String set_tag_value = jo_inside.getString("set_tag");
                 String image_url_small = jo_inside.getString("image_url_small");
-                String atk_value = jo_inside.getString("atk");
-                String def_value = jo_inside.getString("def");
-                String level_value = jo_inside.getString("level");
-                String attribute_value = jo_inside.getString("attribute");
                 String setcode_value = jo_inside.getString("setcode");
 
                 //Add your values in your `ArrayList` as below:
@@ -76,10 +94,6 @@ public class Database extends Activity {
                 m_li.put("race", race_value);
                 m_li.put("set_tag", set_tag_value);
                 m_li.put("image_url", image_url_small);
-                m_li.put("atk", atk_value);
-                m_li.put("def", def_value);
-                m_li.put("level", level_value);
-                m_li.put("attribute", attribute_value);
                 m_li.put("setcode",setcode_value);
 
                 formList.add(m_li);
@@ -88,6 +102,7 @@ public class Database extends Activity {
             e.printStackTrace();
         }
     }
+
 
 
 
