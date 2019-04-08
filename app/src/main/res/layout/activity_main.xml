@@ -16,6 +16,7 @@
 
         android:layout_marginEnd="128dp"
         android:text="@string/timer"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.905"
@@ -203,7 +204,7 @@
         android:id="@+id/p1LP"
         android:layout_width="205dp"
         android:layout_height="48dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="72dp"
         android:background="#f23e1a"
         android:text="@string/p1LPinit"
         android:textAlignment="center"

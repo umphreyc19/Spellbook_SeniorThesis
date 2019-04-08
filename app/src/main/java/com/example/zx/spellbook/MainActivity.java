@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -394,6 +395,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Resets the game
+                Toast.makeText(getApplicationContext(),"Values reset", Toast.LENGTH_SHORT).show();
                 player1LP.setText("8000");
                 player2LP.setText("8000");
                 if(isTimerOn){
