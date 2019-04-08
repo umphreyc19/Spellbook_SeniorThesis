@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button0, button1, button2, button3, button4, button5, button6, button7,
             button8, button9, button00, buttonAddP1, buttonAddP2, buttonSubP1, buttonSubP2,
-            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset, testdb;
+            buttonHalveP1, buttonHalveP2, buttonC, buttonTimer, reset, testdb, diceroll;
     TextView player1LP, player2LP;
     EditText lpEdit;
 
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         buttonHalveP2 = (Button) findViewById(R.id.p2div);
         buttonTimer = (Button) findViewById(R.id.timer);
         reset = (Button) findViewById(R.id.reset);
+        diceroll = (Button) findViewById(R.id.die_roll);
 
         lpEdit = (EditText) findViewById(R.id.lpEdit);
 
@@ -249,10 +250,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        diceroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dieRoll();
+            }
+        });
+
 
 
 
     }
+
+
+    public void dieRoll(){
+        Intent intent = new Intent(this, DiceRoll.class);
+        startActivity(intent);
+    }
+
 
     public void openDB(){
         Intent intent = new Intent(this, Database.class);
@@ -341,7 +356,9 @@ public class MainActivity extends AppCompatActivity {
                 //Resets the game
                 player1LP.setText("8000");
                 player2LP.setText("8000");
-                stopTimer();
+                if(isTimerOn){
+                    stopTimer();
+                }
                 timeLeftInMilliseconds = 2400000;
                 buttonTimer.setText("40:00");
             }
