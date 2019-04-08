@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/timer"
-        
+
         android:layout_width="127dp"
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         android:text="@string/timer"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,6 +204,7 @@
         android:layout_width="201dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
+        android:background="#f23e1a"
         android:text="@string/p1LPinit"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -214,6 +215,7 @@
         android:id="@+id/p2LP"
         android:layout_width="210dp"
         android:layout_height="49dp"
+        android:background="#1941f1"
         android:text="@string/p2LPinit"
         android:textAlignment="center"
         android:textSize="36sp"
