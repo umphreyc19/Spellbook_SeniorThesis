@@ -9,13 +9,17 @@
 
     <Button
         android:id="@+id/timer"
-        android:layout_width="121dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
+        
+        android:layout_width="127dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
 
+        android:layout_marginEnd="128dp"
         android:text="@string/timer"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button

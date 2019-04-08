@@ -33,36 +33,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*Assigned buttons to IDs*/
+        //Assigned buttons to IDs
 
-        testdb = (Button) findViewById(R.id.testdb);
-        button0 = (Button) findViewById(R.id.button0);
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
-        button6 = (Button) findViewById(R.id.button6);
-        button7 = (Button) findViewById(R.id.button7);
-        button8 = (Button) findViewById(R.id.button8);
-        button9 = (Button) findViewById(R.id.button9);
-        button00 = (Button) findViewById(R.id.button00);
-        buttonC = (Button) findViewById(R.id.buttonC);
-        buttonAddP1 = (Button) findViewById(R.id.p1add);
-        buttonSubP1 = (Button) findViewById(R.id.p1sub);
-        buttonHalveP1 = (Button) findViewById(R.id.P1div);
-        buttonAddP2 = (Button) findViewById(R.id.P2add);
-        buttonSubP2 = (Button) findViewById(R.id.p2sub);
-        buttonHalveP2 = (Button) findViewById(R.id.p2div);
-        buttonTimer = (Button) findViewById(R.id.timer);
-        reset = (Button) findViewById(R.id.reset);
-        diceroll = (Button) findViewById(R.id.die_roll);
+        testdb = findViewById(R.id.testdb);
+        button0 = findViewById(R.id.button0);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
+        button7 = findViewById(R.id.button7);
+        button8 = findViewById(R.id.button8);
+        button9 = findViewById(R.id.button9);
+        button00 = findViewById(R.id.button00);
+        buttonC = findViewById(R.id.buttonC);
+        buttonAddP1 = findViewById(R.id.p1add);
+        buttonSubP1 = findViewById(R.id.p1sub);
+        buttonHalveP1 = findViewById(R.id.P1div);
+        buttonAddP2 = findViewById(R.id.P2add);
+        buttonSubP2 = findViewById(R.id.p2sub);
+        buttonHalveP2 = findViewById(R.id.p2div);
+        buttonTimer = findViewById(R.id.timer);
+        reset = findViewById(R.id.reset);
+        diceroll = findViewById(R.id.die_roll);
         coinflip = findViewById(R.id.coin_flip);
 
-        lpEdit = (EditText) findViewById(R.id.lpEdit);
+        lpEdit = findViewById(R.id.lpEdit);
 
-        player1LP = (TextView) findViewById(R.id.p1LP);
-        player2LP = (TextView) findViewById(R.id.p2LP);
+        player1LP = findViewById(R.id.p1LP);
+        player2LP = findViewById(R.id.p2LP);
 
 
         /* Giving buttons their functionality */
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /*Allows the user to add to the current player 1 value*/
+        //Allows the user to add to the current player 1 value
         buttonAddP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*Allows the user to subtract from the current player 1 value*/
+        //Allows the user to subtract from the current player 1 value
         buttonSubP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -169,15 +169,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /*Allows the user to halve the current player 1 value*/
+        //Allows the user to halve the current player 1 value
         buttonHalveP1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if (player1LP.getText().equals("1")) {
-                    player1LP.setText("1");
-                } else {
-                    player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) / 2));
-                }
+                halveP1();
 
             }
         });
@@ -186,13 +182,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAddP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (String.valueOf(lpEdit.getText()).equals("")){
-                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + 0));
-                } else {
-                    p2addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
-                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + p2addval));
-                    lpEdit.setText("");
-                }
+              addP2();
             }
         });
 
@@ -200,18 +190,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSubP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (String.valueOf(lpEdit.getText()).equals("")){
-                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - 0));
-                } else {
-                    p2subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
-                    if (Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval < 0) {
-                        player2LP.setText("0");
-                        lpEdit.setText("");
-                    } else {
-                        player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval));
-                        lpEdit.setText("");
-                    }
-                }
+                subP2();
             }
         });
 
@@ -220,12 +199,7 @@ public class MainActivity extends AppCompatActivity {
         buttonHalveP2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if (player2LP.getText().equals("1")) {
-                    player2LP.setText("1");
-                } else {
-                    player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) / 2));
-                }
-
+                halveP2();
             }
         });
 
@@ -270,23 +244,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //Opens the Die Roll Activity
     public void dieRoll(){
         Intent intent = new Intent(this, DiceRoll.class);
         startActivity(intent);
     }
 
+    //Opens the Coin Flip Activity
     public void flipCoin(){
         Intent intent = new Intent(this, CoinFlip.class);
         startActivity(intent);
     }
 
+    //Opens the Database Activity
     public void openDB(){
         Intent intent = new Intent(this, Database.class);
         startActivity(intent);
     }
 
+
+    //Goes through the process of adding to Player 1's lifepoints
     public void addP1() {
+        //If nothing in the edittext, do nothing
         if (String.valueOf(lpEdit.getText()).equals("")){
             player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) + 0));
         } else {
@@ -296,11 +275,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //Goes through the process of subtracting to Player 1's lifepoints
     public void subP1(){
+        //If nothing in the edittext, do nothing
         if (String.valueOf(lpEdit.getText()).equals("")){
             player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) - 0));
         } else {
             p1subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+            //If the lifepoints were to go below 0, they will stay at 0
             if (Integer.parseInt(String.valueOf(player1LP.getText())) - p1subval < 0) {
                 player1LP.setText("0");
                 lpEdit.setText("");
@@ -311,7 +294,53 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Goes through the process of halving Player 1's lifepoints
+    public void halveP1(){
+        if (player1LP.getText().equals("1")) {
+            player1LP.setText("1");
+        } else {
+            player1LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player1LP.getText())) / 2));
+        }
+    }
 
+    //Goes through the process of adding to Player 2's lifepoints
+    public void addP2(){
+        if (String.valueOf(lpEdit.getText()).equals("")){
+            player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + 0));
+        } else {
+            p2addval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+            player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) + p2addval));
+            lpEdit.setText("");
+        }
+    }
+
+    //Goes through the process of subtracting to Player 2's lifepoints
+    public void subP2(){
+        if (String.valueOf(lpEdit.getText()).equals("")){
+            player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - 0));
+        } else {
+            p2subval = Integer.parseInt(String.valueOf(lpEdit.getText()));
+            if (Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval < 0) {
+                player2LP.setText("0");
+                lpEdit.setText("");
+            } else {
+                player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) - p2subval));
+                lpEdit.setText("");
+            }
+        }
+    }
+
+    //Goes through the process of dividing Player 2's lifepoints
+    public void halveP2(){
+        if (player2LP.getText().equals("1")) {
+            player2LP.setText("1");
+        } else {
+            player2LP.setText(Integer.toString(Integer.parseInt(String.valueOf(player2LP.getText())) / 2));
+        }
+    }
+
+
+    //Toggles the timer on and off
     public void startStop() {
         if (isTimerOn) {
             stopTimer();
@@ -319,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
             startTimer();
         }
     }
+
 
     public void startTimer(){
         countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
@@ -349,14 +379,15 @@ public class MainActivity extends AppCompatActivity {
 
         String timeLeftText;
 
-        timeLeftText = "" + minutes;
-        timeLeftText += ":";
-        if (seconds < 10) timeLeftText += 0;
-        timeLeftText += seconds;
+        timeLeftText = "" + minutes; //40 (default)
+        timeLeftText += ":"; // :
+        if (seconds < 10) timeLeftText += 0; //00-09
+        timeLeftText += seconds; //00-59
 
         buttonTimer.setText(timeLeftText);
     }
 
+    //Resets the main application's variables. Does not affect die roll or coin flip.
     private void reset(){
         AlertDialog.Builder resetAlert = new AlertDialog.Builder(this);
         resetAlert.setMessage("Are you sure you would like to reset?");
